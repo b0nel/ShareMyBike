@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "715662556563",
+    "project_id": "sharemybike-52b38",
+    "storage_bucket": "sharemybike-52b38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:715662556563:android:6775a44d48beca9951fc66",
+        "android_client_info": {
+          "package_name": "com.example.sharemybike"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "715662556563-c3ialo33g0f9c0vo17j7ph9dum9t2a2v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sharemybike",
+            "certificate_hash": "b0230e509a01f341da8ba4d9c60bfe45c30400a9"
+          }
+        },
+        {
+          "client_id": "715662556563-2qlbudenbqlg6q1hkjgv6t2606attpjg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK8osAIkrhRRHsvi6PZphJVytlq1t_WPM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "715662556563-2qlbudenbqlg6q1hkjgv6t2606attpjg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
