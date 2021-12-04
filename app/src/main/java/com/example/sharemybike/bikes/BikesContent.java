@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.example.sharemybike.placeholder.PlaceholderContent;
+import com.google.firebase.database.ValueEventListener;
 
 public class BikesContent {
 
@@ -56,6 +57,7 @@ public class BikesContent {
         }
 
     }
+    
 
     public static class Bike {
         private Bitmap photo;

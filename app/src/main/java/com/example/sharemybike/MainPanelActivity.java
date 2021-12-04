@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
 
+import com.example.sharemybike.bikes.BikesContent;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
@@ -32,6 +33,9 @@ public class MainPanelActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //load bikes
+        BikesContent.loadBikesFromJSON(getApplicationContext());
 
         binding = ActivityMainPanelBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
