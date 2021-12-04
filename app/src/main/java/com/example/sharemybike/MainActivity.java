@@ -44,12 +44,13 @@ public class MainActivity extends AppCompatActivity {
                         GoogleSignInAccount account = task.getResult(ApiException.class);
                         Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
                         firebaseAuthWithGoogle(account.getIdToken());
+                        //start next activity (BikeActivity) after successful login
+                        Intent i = new Intent(getApplicationContext(), MainPanelActivity.class);
+                        startActivity(i);
                     } catch (ApiException e) {
                         Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
                     }
-                    //start next activity (BikeActivity) after successful login
-                    Intent i = new Intent(getApplicationContext(), MainPanelActivity.class);
-                    startActivity(i);
+
 
                 }
             });

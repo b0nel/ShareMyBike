@@ -1,4 +1,4 @@
-package com.example.sharemybike.ui.gallery;
+package com.example.sharemybike.ui.Bike;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,24 +10,24 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import com.example.sharemybike.R;
-import com.example.sharemybike.databinding.FragmentGalleryBinding;
 
-public class GalleryFragment extends Fragment {
+import com.example.sharemybike.databinding.BikeFragmentBinding;
 
-    private GalleryViewModel galleryViewModel;
-private FragmentGalleryBinding binding;
+public class BikeFragment extends Fragment {
+
+    private BikeViewModel bikeViewModel;
+    private BikeFragmentBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+        bikeViewModel =
+                new ViewModelProvider(this).get(BikeViewModel.class);
 
-    binding = FragmentGalleryBinding.inflate(inflater, container, false);
+    binding = BikeFragmentBinding.inflate(inflater, container, false);
     View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        final TextView textView = binding.textHome;
+        bikeViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

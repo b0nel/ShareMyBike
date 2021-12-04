@@ -3,23 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_bikes">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.sharemybike.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_bikes"
+        android:name="com.example.sharemybike.ui.Bike.BikeFragment"
+        android:label="@string/menu_bikes"
+        tools:layout="@layout/bike_fragment" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.sharemybike.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_dates"
+        android:name="com.example.sharemybike.ui.Dates.DatesFragment"
+        android:label="menu_dates"
+        tools:layout="@layout/dates_fragment" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.sharemybike.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_register"
+        android:name="com.example.sharemybike.ui.Register.RegisterFragment"
+        android:label="menu_register"
+        tools:layout="@layout/register_fragment" />
+    <fragment
+        android:id="@+id/nav_bikesmap"
+        android:name="com.example.sharemybike.ui.BikesMap.BikesMapFragment"
+        android:label="@string/menu_bikesmap"
+        tools:layout="@layout/bikes_map_fragment" />
 </navigation>

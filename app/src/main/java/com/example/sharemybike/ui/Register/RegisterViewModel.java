@@ -1,16 +1,16 @@
-package com.example.sharemybike.ui.slideshow;
+package com.example.sharemybike.ui.Register;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class SlideshowViewModel extends ViewModel {
+public class RegisterViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public SlideshowViewModel() {
+    public RegisterViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is slideshow fragment");
+        mText.setValue("This is register fragment");
     }
 
     public LiveData<String> getText() {

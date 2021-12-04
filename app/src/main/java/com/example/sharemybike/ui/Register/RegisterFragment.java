@@ -1,4 +1,4 @@
-package com.example.sharemybike.ui.slideshow;
+package com.example.sharemybike.ui.Register;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,24 +10,24 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import com.example.sharemybike.R;
-import com.example.sharemybike.databinding.FragmentSlideshowBinding;
 
-public class SlideshowFragment extends Fragment {
+import com.example.sharemybike.databinding.RegisterFragmentBinding;
 
-    private SlideshowViewModel slideshowViewModel;
-private FragmentSlideshowBinding binding;
+public class RegisterFragment extends Fragment {
+
+    private RegisterViewModel registerViewModel;
+private RegisterFragmentBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        slideshowViewModel =
-                new ViewModelProvider(this).get(SlideshowViewModel.class);
+        registerViewModel =
+                new ViewModelProvider(this).get(RegisterViewModel.class);
 
-    binding = FragmentSlideshowBinding.inflate(inflater, container, false);
+    binding = RegisterFragmentBinding.inflate(inflater, container, false);
     View root = binding.getRoot();
 
         final TextView textView = binding.textSlideshow;
-        slideshowViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        registerViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

@@ -1,16 +1,16 @@
-package com.example.sharemybike.ui.gallery;
+package com.example.sharemybike.ui.Bike;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class BikeViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public BikeViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("This is bike fragment");
     }
 
     public LiveData<String> getText() {

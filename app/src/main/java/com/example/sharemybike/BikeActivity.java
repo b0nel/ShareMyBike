@@ -23,8 +23,7 @@ public class BikeActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityBikeBinding binding;
     BikesContent bikes;
-    //TextView dateTest;
-    //CalendarView calendarView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
