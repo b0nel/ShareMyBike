@@ -13,6 +13,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.sharemybike.pojos.Bike;
+import com.example.sharemybike.pojos.User;
+import com.example.sharemybike.pojos.UserBooking;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -31,11 +34,13 @@ public class MainActivity extends AppCompatActivity {
     private static GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
     public static boolean signout_requested = false;
+    public static User user = User.getInstance(); //singleton
 
     ActivityResultLauncher<Intent> mGetContent = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
                 @Override
                 public void onActivityResult(ActivityResult result) {
+                    boolean successLogin = false;
                     Intent data=result.getData();
                     // The Task returned from this call is always completed, no need to attach
                     // a listener.
@@ -44,14 +49,18 @@ public class MainActivity extends AppCompatActivity {
                         GoogleSignInAccount account = task.getResult(ApiException.class);
                         Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
                         firebaseAuthWithGoogle(account.getIdToken());
-                        //start next activity (BikeActivity) after successful login
-                        Intent i = new Intent(getApplicationContext(), MainPanelActivity.class);
-                        startActivity(i);
+                        user.setUid(account.getId());
+                        user.setEmail(account.getEmail());
+                        user.setName(account.getDisplayName());
+                        successLogin = true;
                     } catch (ApiException e) {
                         Log.w(TAG, "signInResult:failed code=" + e.getStatusCode());
                     }
-
-
+                    if(successLogin) {
+                        //start next activity (BikeActivity) after successful login
+                        Intent i = new Intent(getApplicationContext(), MainPanelActivity.class);
+                        startActivity(i);
+                    }
                 }
             });
 
@@ -110,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void signOut() {
-        FirebaseAuth.getInstance().signOut();
+        mAuth.signOut();
         MainActivity.mGoogleSignInClient.signOut()
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override

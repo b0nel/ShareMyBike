@@ -38,7 +38,7 @@ public class BikeActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        BikesContent.loadBikesFromJSON(getApplicationContext());
+        //BikesContent.loadBikesList();
     }
 
     @Override
