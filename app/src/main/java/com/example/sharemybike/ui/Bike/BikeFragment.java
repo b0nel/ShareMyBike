@@ -1,6 +1,7 @@
 package com.example.sharemybike.ui.Bike;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,13 +12,16 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.sharemybike.MainPanelActivity;
 import com.example.sharemybike.MyItemRecyclerViewAdapter;
 import com.example.sharemybike.R;
 import com.example.sharemybike.bikes.BikesContent;
 import com.example.sharemybike.databinding.BikeFragmentBinding;
 import com.example.sharemybike.pojos.Bike;
+import com.example.sharemybike.ui.Dates.DatesFragment;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.snackbar.Snackbar;
 
 public class BikeFragment extends Fragment {
 
@@ -69,6 +73,12 @@ public class BikeFragment extends Fragment {
         if (getArguments() != null) {
             mColumnCount = getArguments().getInt(ARG_COLUMN_COUNT);
         }
+
+        /*if(!DatesFragment.isDateSelected){
+            //If date is not selected, go back to calendar
+            Intent i = new Intent(getActivity(), MainPanelActivity.class);
+            startActivity(i);
+        }*/
 
     }
 

@@ -15,7 +15,11 @@
         android:id="@+id/nav_dates"
         android:name="com.example.sharemybike.ui.Dates.DatesFragment"
         android:label="Calendar"
-        tools:layout="@layout/dates_fragment" />
+        tools:layout="@layout/dates_fragment" >
+        <action
+            android:id="@+id/action_nav_dates_to_nav_bikes"
+            app:destination="@id/nav_bikes" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_register"
