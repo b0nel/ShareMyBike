@@ -37,9 +37,8 @@ public class FirstFragment extends Fragment {
         binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                BikesContent.selectedDate = (String) binding.textviewFirst.getText();
                 NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_ItemFragment);
+                        .navigate(R.id.nav_host_fragment_content_main_panel);
             }
         });
 
@@ -47,6 +46,7 @@ public class FirstFragment extends Fragment {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
                 binding.textviewFirst.setText("Date selected: " + day + "/" + (month+1) + "/" + year);
+                BikesContent.selectedDate = (String) binding.textviewFirst.getText();
             }
         });
     }

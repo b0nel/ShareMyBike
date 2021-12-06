@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         mAuth = FirebaseAuth.getInstance();
+        user.setAuth(mAuth);
 
         findViewById(R.id.sign_in_button).setOnClickListener(new com.google.android.gms.common.SignInButton.OnClickListener() {
             @Override

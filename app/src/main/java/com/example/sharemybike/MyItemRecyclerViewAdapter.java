@@ -18,6 +18,11 @@ import com.example.sharemybike.bikes.BikesContent;
 import com.example.sharemybike.placeholder.PlaceholderContent.PlaceholderItem;
 import com.example.sharemybike.databinding.FragmentItemBinding;
 import com.example.sharemybike.pojos.Bike;
+import com.example.sharemybike.pojos.User;
+import com.example.sharemybike.pojos.UserBooking;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -28,6 +33,7 @@ import java.util.List;
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
     private final List<Bike> mValues;
+    public static User user = User.getInstance(); //singleton
 
     public MyItemRecyclerViewAdapter(List<Bike> items) {
         mValues = items;
@@ -42,31 +48,25 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        /*holder.mItem = mValues.get(position);
+        holder.mItem = mValues.get(position);
         holder.mCity.setText(mValues.get(position).getCity());
         holder.mOwner.setText(mValues.get(position).getOwner());
         holder.mLocation.setText(mValues.get(position).getLocation());
         holder.mDescription.setText(mValues.get(position).getDescription());
-        holder.mImg.setImageBitmap(mValues.get(position).getPhoto());*/
+        holder.mImg.setImageBitmap(mValues.get(position).getPhoto());
         holder.mBtnImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Código para enviar el email
-                Intent i= new Intent();
-                i.createChooser(i,"Choose the app to send the email with your order");
-                i.setAction(Intent.ACTION_SEND);
-                i.setData(Uri.parse("mailto:"));
-                i.putExtra(Intent.EXTRA_EMAIL, new String[] {holder.mItem.getEmail()});
-                String subjectText = "Couch App: I'd like to book your bike";
-                i.putExtra(Intent.EXTRA_SUBJECT, subjectText);
-                String emailText = "Dear Mr/Mrs " + holder.mItem.getOwner() + ":\n" +
-                        " I'd like to use your bike at " + holder.mItem.getLocation() + " (" +
-                        holder.mItem.getCity() + ")\n for the following date: " +
-                        BikesContent.selectedDate.replace("Date selected: ", "")
-                        + "\nCan you confirm its availability?\nKindest regards";
-                i.putExtra(Intent.EXTRA_TEXT,emailText);
-                i.setType("message/rfc822");
-                v.getContext().startActivity(i);
+                //instead of mail, now we process the order in firebase
+                String selectedDate = BikesContent.selectedDate.replace("Date selected: ", "");
+                FirebaseDatabase database =  FirebaseDatabase.getInstance("https://sharemybike-52b38-default-rtdb.europe-west1.firebasedatabase.app");
+                String userId = user.getAuth().getUid();
+                UserBooking userBooking = new UserBooking(userId, user.getEmail(),
+                        holder.mItem.getEmail(), holder.mItem.getCity(), selectedDate);
+
+                DatabaseReference mRef = database.getReference().child("booking_requests");
+                //mRef.setValue(userBooking);
+                mRef.push().setValue(userBooking);
             }
         });
     }

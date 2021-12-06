@@ -29,16 +29,14 @@ public class MainPanelActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainPanelBinding binding;
+    public BikesContent bikesContent;
 
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //load bikes
-        //BikesContent.loadBikesFromJSON(getApplicationContext());
-        //BikesContent.loadBikesList(getApplicationContext(), R.layout.fragment_item_list);
-        BikesContent bikesContent = new BikesContent(getApplicationContext());
+        bikesContent  = new BikesContent(getApplicationContext());
 
         binding = ActivityMainPanelBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -62,7 +60,6 @@ public class MainPanelActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main_panel);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
     }
 
     @Override

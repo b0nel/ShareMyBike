@@ -1,9 +1,20 @@
 package com.example.sharemybike.pojos;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class User {
 
     private String name;
     private String email;
+    private FirebaseAuth mAuth;
+
+    public FirebaseAuth getAuth() {
+        return mAuth;
+    }
+
+    public void setAuth(FirebaseAuth mAuth) {
+        this.mAuth = mAuth;
+    }
 
     public String getName() {
         return name;

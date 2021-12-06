@@ -21,9 +21,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.example.sharemybike.R;
-import com.example.sharemybike.placeholder.PlaceholderContent;
 import com.example.sharemybike.pojos.Bike;
-import com.example.sharemybike.pojos.User;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,7 +30,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageReference;
 
 public class BikesContent extends ArrayAdapter<Bike>{
@@ -43,9 +40,10 @@ public class BikesContent extends ArrayAdapter<Bike>{
     public static String selectedDate;
     public static DatabaseReference mDatabase;
     public static StorageReference mStorageReference;
+    public boolean load_finished = false;
 
-    public BikesContent(Context c){
-        super(c, R.layout.fragment_item_list);
+    public BikesContent(Context context){
+        super(context, R.layout.bike_fragment);
         loadBikesList();
     }
 
@@ -100,8 +98,7 @@ public class BikesContent extends ArrayAdapter<Bike>{
                         ITEMS.add(bike);
                     }
                     notifyDataSetChanged();
-                    //listener.notifyDataSetChanged();
-                    //mValues.notifyDataSetChanged();
+                    load_finished = true;
                 }
 
                 @Override
@@ -128,7 +125,7 @@ public class BikesContent extends ArrayAdapter<Bike>{
                     for (Bike c : ITEMS) {
                         if (c.getImage().equals(url)) {
                             c.setPhoto(BitmapFactory.decodeFile(localFile.getAbsolutePath()));
-                            //notifyDataSetChanged();
+                            notifyDataSetChanged();
                             Log.d(TAG, "Loaded pic " + c.getImage() + ";" + url + localFile.getAbsolutePath());
                         }
                     }

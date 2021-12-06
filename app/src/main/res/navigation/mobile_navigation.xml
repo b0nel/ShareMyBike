@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_bikes">
+    app:startDestination="@+id/nav_dates">
 
     <fragment
         android:id="@+id/nav_bikes"
@@ -14,13 +14,13 @@
     <fragment
         android:id="@+id/nav_dates"
         android:name="com.example.sharemybike.ui.Dates.DatesFragment"
-        android:label="menu_dates"
+        android:label="Calendar"
         tools:layout="@layout/dates_fragment" />
 
     <fragment
         android:id="@+id/nav_register"
         android:name="com.example.sharemybike.ui.Register.RegisterFragment"
-        android:label="menu_register"
+        android:label="Register My Bike"
         tools:layout="@layout/register_fragment" />
     <fragment
         android:id="@+id/nav_bikesmap"

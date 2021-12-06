@@ -5,21 +5,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.sharemybike.ItemFragment;
 import com.example.sharemybike.MyItemRecyclerViewAdapter;
 import com.example.sharemybike.R;
 import com.example.sharemybike.bikes.BikesContent;
 import com.example.sharemybike.databinding.BikeFragmentBinding;
+import com.example.sharemybike.pojos.Bike;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 public class BikeFragment extends Fragment {
 
@@ -42,7 +40,7 @@ public class BikeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_item_list, container, false);
+        View view = inflater.inflate(R.layout.bike_fragment, container, false);
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -54,8 +52,13 @@ public class BikeFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
             recyclerView.setAdapter(new MyItemRecyclerViewAdapter(BikesContent.ITEMS));
-            //recyclerView.setAdapter(new MyItemRecyclerViewAdapter(BikesContent.mValues));
+
+            //Set the adapter
+            /*FirebaseRecyclerOptions<Bike> options = new FirebaseRecyclerOptions.Builder<Bike>()
+                    .setQuery(query, Bike.class)
+                    .build();*/
         }
+
         return view;
     }
 
