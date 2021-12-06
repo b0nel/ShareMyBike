@@ -17,11 +17,12 @@
         <entry key="..\:/ShareMyBike/app/src/main/res/layout/activity_main_panel.xml" value="0.19479166666666667" />
         <entry key="..\:/ShareMyBike/app/src/main/res/layout/app_bar_main_panel.xml" value="0.25677083333333334" />
         <entry key="..\:/ShareMyBike/app/src/main/res/layout/bike_fragment.xml" value="0.25" />
-        <entry key="..\:/ShareMyBike/app/src/main/res/layout/bikes_map_fragment.xml" value="0.25677083333333334" />
+        <entry key="..\:/ShareMyBike/app/src/main/res/layout/bikes_map_fragment.xml" value="0.25" />
         <entry key="..\:/ShareMyBike/app/src/main/res/layout/content_ _main_panel.xml" value="0.36666666666666664" />
         <entry key="..\:/ShareMyBike/app/src/main/res/layout/content_bike.xml" value="0.33" />
         <entry key="..\:/ShareMyBike/app/src/main/res/layout/content_main_panel.xml" value="0.18" />
         <entry key="..\:/ShareMyBike/app/src/main/res/layout/dates_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/ShareMyBike/app/src/main/res/layout/fragment_bikes_map.xml" value="0.75" />
         <entry key="..\:/ShareMyBike/app/src/main/res/layout/fragment_first.xml" value="0.25677083333333334" />
         <entry key="..\:/ShareMyBike/app/src/main/res/layout/fragment_gallery.xml" value="0.36666666666666664" />
         <entry key="..\:/ShareMyBike/app/src/main/res/layout/fragment_home.xml" value="0.25677083333333334" />
@@ -30,6 +31,7 @@
         <entry key="..\:/ShareMyBike/app/src/main/res/layout/fragment_slideshow.xml" value="0.19479166666666667" />
         <entry key="..\:/ShareMyBike/app/src/main/res/layout/nav_header_ _main_panel.xml" value="0.25677083333333334" />
         <entry key="..\:/ShareMyBike/app/src/main/res/layout/nav_header_main_panel.xml" value="0.20520833333333333" />
+        <entry key="..\:/ShareMyBike/app/src/main/res/layout/register_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/ShareMyBike/app/src/main/res/menu/activity_main_panel_drawer.xml" value="0.9" />
         <entry key="..\:/ShareMyBike/app/src/main/res/menu/main_panel.xml" value="0.19479166666666667" />
         <entry key="..\:/ShareMyBike/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21770833333333334" />
