@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.sharemybike.R;
-import com.example.sharemybike.bikes.BikesContent;
 import com.example.sharemybike.pojos.Bike;
+import com.example.sharemybike.ui.Bike.BikeFragment;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -35,7 +35,7 @@ public class BikesMapFragment extends Fragment {
             PolylineOptions poly=new PolylineOptions();
 
             //for each bike in the list
-            for (Bike c : BikesContent.ITEMS) {
+            for (Bike c : BikeFragment.ITEMS) {
 
                 //gets its latitude and longitude
                 LatLng ll = new LatLng(Double.valueOf(c.getLatitude()), Double.valueOf(c.getLongitude()));

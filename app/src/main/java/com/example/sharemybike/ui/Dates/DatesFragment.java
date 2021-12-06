@@ -14,8 +14,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.sharemybike.R;
-import com.example.sharemybike.bikes.BikesContent;
 import com.example.sharemybike.databinding.DatesFragmentBinding;
+import com.example.sharemybike.ui.Bike.BikeFragment;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Calendar;
@@ -36,7 +36,7 @@ public class DatesFragment extends Fragment {
 
         binding = DatesFragmentBinding.inflate(inflater, container, false);
         if(isDateSelected){
-            binding.textviewFirst.setText(BikesContent.selectedDate);
+            binding.textviewFirst.setText(BikeFragment.selectedDate);
             binding.calendarView.setDate(milliTime, true, true);
             //mCalendarView.setDate(new SimpleDateFormat("dd/MM/yyyy").parse(selectedDate).getTime(), true, true);
         }
@@ -68,7 +68,7 @@ public class DatesFragment extends Fragment {
             @Override
             public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
                 binding.textviewFirst.setText("Date selected: " + day + "/" + (month+1) + "/" + year);
-                BikesContent.selectedDate = (String) binding.textviewFirst.getText();
+                BikeFragment.selectedDate = (String) binding.textviewFirst.getText();
                 isDateSelected = true;
                 date = Calendar.getInstance();
                 date.set(Calendar.YEAR, year);

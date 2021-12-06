@@ -25,11 +25,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.sharemybike.R;
-import com.example.sharemybike.bikes.BikesContent;
 import com.example.sharemybike.databinding.ActivityMainPanelBinding;
 import com.example.sharemybike.databinding.RegisterFragmentBinding;
 import com.example.sharemybike.pojos.Bike;
 import com.example.sharemybike.pojos.User;
+import com.example.sharemybike.pojos.UserBooking;
+import com.example.sharemybike.ui.Bike.BikeFragment;
 import com.example.sharemybike.ui.Dates.DatesFragment;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -94,9 +95,8 @@ public class RegisterFragment extends Fragment {
                         }
                 );
 
-        // Before you perform the actual permission request, check whether your app
-        // already has the permissions, and whether your app needs to show a permission
-        // rationale dialog. For more details, see Request permissions.
+
+        //check if app have location permissions
         locationPermissionRequest.launch(new String[] {
                 Manifest.permission.ACCESS_FINE_LOCATION,
                 Manifest.permission.ACCESS_COARSE_LOCATION
@@ -150,8 +150,6 @@ public class RegisterFragment extends Fragment {
         binding.btnAddMyBike.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //String image, String owner, String description, String city, Double longitude, Double latitude, String location, Bitmap photo, String email
-
                 Bike bike = new Bike(
                         "image",
                         user.getName(),
@@ -163,7 +161,8 @@ public class RegisterFragment extends Fragment {
                         ((BitmapDrawable)binding.imgSofa.getDrawable()).getBitmap(),
                         user.getEmail()
                 );
-                BikesContent.ITEMS.add(bike);
+                //BikeFragment.ITEMS.add(bike);
+                BikeFragment.addToDatabase(bike);
             }
         });
 

@@ -7,7 +7,6 @@ import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
 
-import com.example.sharemybike.bikes.BikesContent;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

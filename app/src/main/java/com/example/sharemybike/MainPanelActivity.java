@@ -3,14 +3,16 @@ package com.example.sharemybike;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
 
-import com.example.sharemybike.bikes.BikesContent;
 import com.example.sharemybike.pojos.Bike;
+import com.example.sharemybike.pojos.User;
+import com.example.sharemybike.ui.Bike.BikeFragment;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
@@ -30,26 +32,37 @@ public class MainPanelActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainPanelBinding binding;
-    public BikesContent bikesContent;
 
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        bikesContent  = new BikesContent(getApplicationContext());
+        BikeFragment.initArrayAdapter(getApplicationContext());
+        BikeFragment.loadBikesList();
 
         binding = ActivityMainPanelBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMainPanel.toolbar);
-        binding.appBarMainPanel.fab.setOnClickListener(new View.OnClickListener() {
+        /*binding.appBarMainPanel.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
+        String welcomeMsg = "";
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            welcomeMsg = extras.getString("WELCOME");
+        }
+        View parentLayout = findViewById(android.R.id.content);
+        Snackbar snackbar = Snackbar.make(parentLayout, welcomeMsg, Snackbar.LENGTH_LONG)
+                .setAction("Action", null);
+        View sbView = snackbar.getView();
+        sbView.setBackgroundColor(Color.GRAY);
+        snackbar.show();
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each

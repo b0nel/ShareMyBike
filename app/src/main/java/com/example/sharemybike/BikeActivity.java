@@ -4,7 +4,6 @@ import android.content.Context;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 
-import com.example.sharemybike.bikes.BikesContent;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +21,6 @@ public class BikeActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityBikeBinding binding;
-    BikesContent bikes;
 
 
     @Override
@@ -38,7 +36,6 @@ public class BikeActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        //BikesContent.loadBikesList();
     }
 
     @Override

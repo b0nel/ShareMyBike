@@ -14,22 +14,18 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.sharemybike.bikes.BikesContent;
-import com.example.sharemybike.placeholder.PlaceholderContent.PlaceholderItem;
 import com.example.sharemybike.databinding.FragmentItemBinding;
 import com.example.sharemybike.pojos.Bike;
 import com.example.sharemybike.pojos.User;
 import com.example.sharemybike.pojos.UserBooking;
+import com.example.sharemybike.ui.Bike.BikeFragment;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link PlaceholderItem}.
- * TODO: Replace the implementation with code for your data type.
- */
+
 public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder> {
 
     private final List<Bike> mValues;
@@ -58,15 +54,16 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             @Override
             public void onClick(View v) {
                 //instead of mail, now we process the order in firebase
-                String selectedDate = BikesContent.selectedDate.replace("Date selected: ", "");
-                FirebaseDatabase database =  FirebaseDatabase.getInstance("https://sharemybike-52b38-default-rtdb.europe-west1.firebasedatabase.app");
+                String selectedDate = BikeFragment.selectedDate.replace("Date selected: ", "");
+                //FirebaseDatabase database =  FirebaseDatabase.getInstance("https://sharemybike-52b38-default-rtdb.europe-west1.firebasedatabase.app");
                 String userId = user.getAuth().getUid();
                 UserBooking userBooking = new UserBooking(userId, user.getEmail(),
                         holder.mItem.getEmail(), holder.mItem.getCity(), selectedDate);
 
-                DatabaseReference mRef = database.getReference().child("booking_requests");
-                //mRef.setValue(userBooking);
-                mRef.push().setValue(userBooking);
+                //DatabaseReference mRef = database.getReference().child("booking_requests");
+                //mRef.push().setValue(userBooking);
+                userBooking.addToDatabase(); // method was already implemented T_T
+
             }
         });
     }

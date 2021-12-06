@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     if(successLogin) {
                         //start next activity (BikeActivity) after successful login
                         Intent i = new Intent(getApplicationContext(), MainPanelActivity.class);
+                        i.putExtra("WELCOME", "Welcome " + user.getName() + " \n[" + user.getEmail() + "]");
                         startActivity(i);
                     }
                 }
